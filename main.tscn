@@ -1,6 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dgu5o6h33log5"]
+[gd_scene load_steps=3 format=3 uid="uid://dgu5o6h33log5"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4on2r"]
+[ext_resource type="PackedScene" uid="uid://b4o6agkqexhlt" path="res://wall.tscn" id="2_34x0j"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_4on2r")
+
+[node name="WallContainer" type="Node" parent="."]
+
+[node name="wall_t" parent="WallContainer" instance=ExtResource("2_34x0j")]
+position = Vector2(573, 14)
+
+[node name="wall_b" parent="WallContainer" instance=ExtResource("2_34x0j")]
+position = Vector2(566, 630)
+scale = Vector2(1.51253, 1.6008)
+
+[node name="wall_r" parent="WallContainer" instance=ExtResource("2_34x0j")]
+position = Vector2(1137, 340)
+rotation = -1.57074
+scale = Vector2(0.954732, -1.48212)
+
+[node name="wall_l" parent="WallContainer" instance=ExtResource("2_34x0j")]
+position = Vector2(18, 340)
+rotation = -1.57074
+scale = Vector2(0.954732, -1.48212)
