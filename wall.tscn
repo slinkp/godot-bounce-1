@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4o6agkqexhlt"]
+
+[ext_resource type="Texture2D" uid="uid://wniml6e0lb00" path="res://assets/purple_wall.png" id="1_a614o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwy81"]
+size = Vector2(798, 20)
+
+[node name="wall" type="StaticBody2D"]
+position = Vector2(562, 22)
+scale = Vector2(1.50984, 1.60827)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a614o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_uwy81")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
