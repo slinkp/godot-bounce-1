@@ -11,18 +11,19 @@ ball_scene = ExtResource("2_uii1u")
 [node name="WallContainer" type="Node" parent="."]
 
 [node name="wall_t" parent="WallContainer" instance=ExtResource("2_34x0j")]
-position = Vector2(573, 14)
+position = Vector2(576, -164)
+scale = Vector2(2.88135, 20.2792)
 
 [node name="wall_b" parent="WallContainer" instance=ExtResource("2_34x0j")]
-position = Vector2(566, 630)
-scale = Vector2(1.51253, 1.6008)
+position = Vector2(556, 856)
+scale = Vector2(2.31887, 24.5293)
 
 [node name="wall_r" parent="WallContainer" instance=ExtResource("2_34x0j")]
-position = Vector2(1137, 340)
+position = Vector2(1565, 370)
 rotation = -1.57074
-scale = Vector2(0.954732, -1.48212)
+scale = Vector2(0.954732, 44.4781)
 
 [node name="wall_l" parent="WallContainer" instance=ExtResource("2_34x0j")]
-position = Vector2(18, 340)
+position = Vector2(-400, 306)
 rotation = -1.57074
-scale = Vector2(0.954732, -1.48212)
+scale = Vector2(0.954732, 42.4381)
