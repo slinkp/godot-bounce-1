@@ -21,7 +21,7 @@ func restart_game():
 
 func add_random_ball():
 	var new_ball = ball_scene.instantiate()
-	new_ball.position = randomize_position()
+	new_ball.position = random_position()
 	print("Got position %s" % new_ball.position)
 
 	new_ball.rotation =random_rotation()
@@ -33,7 +33,7 @@ func add_random_ball():
 	add_child(new_ball)
 
 
-func randomize_position():
+func random_position():
 	# Unclear why I had to do this instead of
 	# just calling get_viewport_rect()?
 	# TODO: ensure we don't overlap with walls.

@@ -20,3 +20,6 @@ Initial scene plan and expected scene types:
 TODO: read about `apply_impulse` and `apply_force` methods, maybe useful later
 to start inert bodies moving?
 
+TODO:
+Who should handle the "hit" signal?
+If each wall has a different sound, maybe the wall.
