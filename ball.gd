@@ -15,3 +15,10 @@ func _process(_delta):
 	# Don't allow going off screen!
 	#position.x = clamp(position.x, 0, screen_size.x)
 	#position.y = clamp(position.y, 0, screen_size.y)
+
+
+func _on_body_entered(body):
+	if body.name.contains("wall"):
+		print("Hit a wall! %s at %s" % [body, position])
+	else:
+		print("Hit something else %s" % body.name)

@@ -15,6 +15,7 @@ position = Vector2(512, 360)
 physics_material_override = SubResource("PhysicsMaterial_bqpb2")
 gravity_scale = 0.0
 continuous_cd = 2
+max_contacts_reported = 5
 contact_monitor = true
 script = ExtResource("1_tm15r")
 metadata/_edit_group_ = true
@@ -25,3 +26,5 @@ texture = ExtResource("1_gj7cd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_sd3rj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
