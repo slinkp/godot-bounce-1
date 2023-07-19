@@ -11,7 +11,10 @@ func _process(delta):
 	pass
 
 
+func handle_hit(position):
+	make_sound()
+
+
 func make_sound():
-	print("Wall got hit! %s" % name)
-	pass
+	print("Beep! %s" % name)
 
