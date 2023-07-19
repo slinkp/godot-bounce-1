@@ -23,3 +23,23 @@ to start inert bodies moving?
 TODO:
 Who should handle the "hit" signal?
 If each wall has a different sound, maybe the wall.
+
+
+# Way to change source file of an AudioStreamPlayer dynamically
+
+Found this at https://www.youtube.com/watch?v=A-926oL_8NM
+You could obviously refactor to pass in filename, and so forth.
+```
+func start_sound():
+    var path = "res://sounds/thingy.mp3"
+    var file = File.new()
+    if file.file_exists(path):
+        file.open(path, file.READ)
+        var buffer = file.get_buffer(file.get_len())
+        var stream = AudioStreamMP3.new()
+        stream.data = buffer
+        # Assumes this script's parent has an AudioStreamPlayer child
+        var audio = get_parent().get_node("AudioStreamPlayer")
+        audio.stream = stream
+        audio.play
+```

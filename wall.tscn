@@ -23,3 +23,5 @@ texture = ExtResource("1_a614o")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_uwy81")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
