@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b4o6agkqexhlt"]
+[gd_scene load_steps=5 format=3 uid="uid://b4o6agkqexhlt"]
 
+[ext_resource type="Script" path="res://wall.gd" id="1_83n7w"]
 [ext_resource type="Texture2D" uid="uid://wniml6e0lb00" path="res://assets/purple_wall.png" id="1_a614o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_usjsr"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uwy81"]
 size = Vector2(798, 20)
@@ -8,6 +13,8 @@ size = Vector2(798, 20)
 [node name="wall" type="StaticBody2D"]
 position = Vector2(562, 22)
 scale = Vector2(1.50984, 1.60827)
+physics_material_override = SubResource("PhysicsMaterial_usjsr")
+script = ExtResource("1_83n7w")
 metadata/_edit_group_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
