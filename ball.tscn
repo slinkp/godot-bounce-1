@@ -17,6 +17,8 @@ gravity_scale = 0.0
 continuous_cd = 2
 max_contacts_reported = 5
 contact_monitor = true
+linear_damp_mode = 1
+angular_damp_mode = 1
 script = ExtResource("1_tm15r")
 metadata/_edit_group_ = true
 
