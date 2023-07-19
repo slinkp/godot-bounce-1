@@ -24,7 +24,7 @@ func add_random_ball():
 	new_ball.position = random_position()
 	print("Got position %s" % new_ball.position)
 
-	new_ball.rotation =random_rotation()
+	new_ball.rotation = random_rotation()
 
 	var direction = new_ball.rotation # Vector2(PI, PI)
 	var velocity = Vector2(speed, 0.0)
@@ -34,8 +34,7 @@ func add_random_ball():
 
 
 func random_position():
-	# Unclear why I had to do this instead of
-	# just calling get_viewport_rect()?
+	# Unclear why get_viewport_rect() wasn't available here?
 	# TODO: ensure we don't overlap with walls.
 	var rect = get_tree().root.get_visible_rect()
 	print("Got rect %s" % rect)
