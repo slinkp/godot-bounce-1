@@ -1,5 +1,7 @@
 extends StaticBody2D
 
+var bus = "master"
+var player: AudioStreamPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,25 +15,25 @@ func _process(delta):
 
 
 func handle_hit(position):
-	make_sound()
+	make_sound(position)
 
 
-func make_sound():
+func make_sound(position):
 	print("Beep! %s" % name)
-	print("Stream is %s" % $AudioStreamPlayer.has_stream_playback())
-	$AudioStreamPlayer.play()
+	var pitch_scale = randfn(0.5, 2.0)
+	# print("Stream is %s" % player.has_stream_playback())
+	player.pitch_scale = pitch_scale
+	player.play()
 
 
 func load_sound():
 	var path = "res://assets/sounds/drum-hit-tom-low_100bpm_D#_major.wav"
+	player = AudioStreamPlayer.new()
+	add_child(player)
+	player.bus = bus
 	if FileAccess.file_exists(path):
 		print("Loading %s" % path)
-		var file = FileAccess.open(path, FileAccess.READ)
-		var buffer = file.get_buffer(file.get_length())
-		var stream = AudioStreamMP3.new()
-		stream.data = buffer
-		# Assumes this script's parent has an AudioStreamPlayer child
-		# # get_parent().get_node("AudioStreamPlayer")
-		$AudioStreamPlayer.set_stream(stream)
+		var stream = load(path)
+		player.set_stream(stream)
 	else:
 		print("Could not load path %s" % path)
