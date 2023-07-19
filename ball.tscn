@@ -14,6 +14,7 @@ radius = 7.0
 position = Vector2(512, 360)
 physics_material_override = SubResource("PhysicsMaterial_bqpb2")
 gravity_scale = 0.0
+continuous_cd = 2
 contact_monitor = true
 script = ExtResource("1_tm15r")
 metadata/_edit_group_ = true
