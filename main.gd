@@ -44,8 +44,9 @@ func random_position():
 	var rect = get_tree().root.get_visible_rect()
 	print("Got rect %s" % rect)
 	var position = Vector2(
-		randf_range(0, rect.end.x),
-		randf_range(0, rect.end.y)
+		# TODO: Get rectangle enclosed by WallContainer?
+		randf_range(50, 950),
+		randf_range(50, 200)
 		)
 	return position # print("Setting position to %s" % position)
 
