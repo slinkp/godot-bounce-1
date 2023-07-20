@@ -14,9 +14,16 @@ func _process(_delta):
 
 
 func restart_game():
-	print("Restarting")
-	add_random_ball()
+	stop_game()
+	print("Starting game")
+	for _n in 3:
+		add_random_ball()
 
+func stop_game():
+	print("Stopping")
+	get_tree().call_group("balls", "queue_free")
+	# Hacky `sleep` to wait for all to be freed
+	await get_tree().create_timer(0.5).timeout
 
 func add_random_ball():
 	var new_ball = ball_scene.instantiate()
@@ -48,3 +55,11 @@ func random_rotation():
 	# Randomize direction
 	var direction = randf_range(0, PI * 2)
 	return direction
+
+
+func _on_stop_button_button_down():
+	stop_game()
+
+
+func _on_restart_button_button_down():
+	restart_game() # Replace with function body.
