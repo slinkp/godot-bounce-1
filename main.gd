@@ -2,12 +2,11 @@ extends Node
 
 @export var ball_scene: PackedScene
 
-var speed = 1000.0
+var speed = 3000.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	restart_game()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -22,7 +21,7 @@ func restart_game():
 func add_random_ball():
 	var new_ball = ball_scene.instantiate()
 	new_ball.position = random_position()
-	print("Got position %s" % new_ball.position)
+	print("New ball position %s" % new_ball.position)
 
 	new_ball.rotation = random_rotation()
 

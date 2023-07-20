@@ -19,7 +19,6 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if body.name.contains("wall"):
-		print("Hit a wall! %s at %s" % [body, position])
 		body.handle_hit(position)
 	else:
-		print("Hit something else %s" % body.name)
+		print("Hit a non-wall %s" % body.name)
