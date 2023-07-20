@@ -16,8 +16,7 @@ func _process(_delta):
 func restart_game():
 	stop_game()
 	print("Starting game")
-	for _n in 3:
-		add_random_ball()
+	add_random_ball()
 
 func stop_game():
 	print("Stopping")
@@ -63,3 +62,7 @@ func _on_stop_button_button_down():
 
 func _on_restart_button_button_down():
 	restart_game() # Replace with function body.
+
+
+func _on_ball_spawn_button_button_down():
+	add_random_ball() # Replace with function body.

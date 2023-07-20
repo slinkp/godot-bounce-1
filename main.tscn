@@ -54,5 +54,10 @@ layout_mode = 2
 text = "Stop
 "
 
+[node name="BallSpawnButton" type="Button" parent="UI/Buttons/GridContainer"]
+layout_mode = 2
+text = "Add Ball"
+
 [connection signal="button_down" from="UI/Buttons/GridContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="UI/Buttons/GridContainer/StopButton" to="." method="_on_stop_button_button_down"]
+[connection signal="button_down" from="UI/Buttons/GridContainer/BallSpawnButton" to="." method="_on_ball_spawn_button_button_down"]
