@@ -1,0 +1,59 @@
+[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://g3rc1thc8jq4"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_vvyle"]
+resource_name = "Reverb"
+room_size = 0.41
+spread = 0.61
+dry = 0.19
+wet = 0.48
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_pa4l5"]
+resource_name = "Panner"
+pan = 0.6
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_0xe0x"]
+resource_name = "Delay"
+tap1_delay_ms = 600.0
+tap1_level_db = -9.1
+tap1_pan = -1.0
+tap2_active = false
+tap2_delay_ms = 100.0
+tap2_pan = -1.0
+
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_8b6iw"]
+resource_name = "Panner"
+pan = -0.72
+
+[resource]
+bus/1/name = &"top"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/1/effect/0/effect = SubResource("AudioEffectReverb_vvyle")
+bus/1/effect/0/enabled = true
+bus/2/name = &"right"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/2/effect/0/effect = SubResource("AudioEffectPanner_pa4l5")
+bus/2/effect/0/enabled = true
+bus/3/name = &"bottom"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"left"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Master"
+bus/4/effect/0/effect = SubResource("AudioEffectDelay_0xe0x")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectPanner_8b6iw")
+bus/4/effect/1/enabled = true
