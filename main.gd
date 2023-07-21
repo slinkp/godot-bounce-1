@@ -2,7 +2,7 @@ extends Node
 
 @export var ball_scene: PackedScene
 
-@export var speed = 3000.0
+@export var speed = 1000.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
