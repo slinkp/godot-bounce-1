@@ -12,7 +12,7 @@ func _process(delta):
 	pass
 
 
-func _on_line_edit_text_submitted(new_text: String):
+func _on_speed_line_edit_text_submitted(new_text: String):
 	new_text = new_text.strip_edges()
 	if new_text.is_valid_int():
 		speed_updated.emit(new_text.to_int())

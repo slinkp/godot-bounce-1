@@ -15,14 +15,14 @@ func _process(_delta):
 
 func restart_game():
 	stop_game()
+	# Hacky `sleep` to wait for all to be freed
+	await get_tree().create_timer(0.5).timeout
 	print("Starting game")
 	add_random_ball()
 
 func stop_game():
 	print("Stopping")
 	get_tree().call_group("balls", "queue_free")
-	# Hacky `sleep` to wait for all to be freed
-	await get_tree().create_timer(0.5).timeout
 
 func add_random_ball():
 	var new_ball = ball_scene.instantiate()
@@ -62,11 +62,11 @@ func _on_stop_button_button_down():
 
 
 func _on_restart_button_button_down():
-	restart_game() # Replace with function body.
+	restart_game()
 
 
 func _on_ball_spawn_button_button_down():
-	add_random_ball() # Replace with function body.
+	add_random_ball()
 
 
 func _on_ui_speed_updated(new_speed):

@@ -60,7 +60,7 @@ text = "Stop
 layout_mode = 2
 text = "Add Ball"
 
-[node name="LineEdit" type="LineEdit" parent="UI/Buttons/GridContainer"]
+[node name="SpeedLineEdit" type="LineEdit" parent="UI/Buttons/GridContainer"]
 layout_mode = 2
 placeholder_text = "3000"
 
@@ -68,4 +68,4 @@ placeholder_text = "3000"
 [connection signal="button_down" from="UI/Buttons/GridContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="UI/Buttons/GridContainer/StopButton" to="." method="_on_stop_button_button_down"]
 [connection signal="button_down" from="UI/Buttons/GridContainer/BallSpawnButton" to="." method="_on_ball_spawn_button_button_down"]
-[connection signal="text_submitted" from="UI/Buttons/GridContainer/LineEdit" to="UI" method="_on_line_edit_text_submitted"]
+[connection signal="text_submitted" from="UI/Buttons/GridContainer/SpeedLineEdit" to="UI" method="_on_speed_line_edit_text_submitted"]
