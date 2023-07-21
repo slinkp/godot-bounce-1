@@ -15,7 +15,9 @@ func _process(_delta):
 
 func restart_game():
 	stop_game()
-	# Hacky `sleep` to wait for all to be freed
+	# Hacky `sleep` to wait for all to be freed.
+	# There seems to be an issue where if I add a random ball too quickly
+	# it gets freed?
 	await get_tree().create_timer(0.5).timeout
 	print("Starting game")
 	add_random_ball()
