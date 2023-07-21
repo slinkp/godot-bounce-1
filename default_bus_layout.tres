@@ -1,4 +1,7 @@
-[gd_resource type="AudioBusLayout" load_steps=5 format=3 uid="uid://g3rc1thc8jq4"]
+[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://g3rc1thc8jq4"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_s4d5c"]
+resource_name = "Limiter"
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_vvyle"]
 resource_name = "Reverb"
@@ -25,6 +28,8 @@ resource_name = "Panner"
 pan = -0.72
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_s4d5c")
+bus/0/effect/0/enabled = true
 bus/1/name = &"top"
 bus/1/solo = false
 bus/1/mute = false
