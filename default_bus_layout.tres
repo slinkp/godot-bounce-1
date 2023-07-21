@@ -2,6 +2,10 @@
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_s4d5c"]
 resource_name = "Limiter"
+ceiling_db = -4.7
+threshold_db = -0.8
+soft_clip_db = 0.0
+soft_clip_ratio = 10.3
 
 [sub_resource type="AudioEffectReverb" id="AudioEffectReverb_vvyle"]
 resource_name = "Reverb"
