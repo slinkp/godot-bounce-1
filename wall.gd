@@ -27,7 +27,16 @@ func _process(delta):
 
 func handle_hit(hit_position):
 	make_sound(hit_position)
+	send_osc(hit_position)
 
+
+func send_osc(hit_position):
+	var peer = PacketPeerUDP.new()
+	peer.set_dest_address("127.0.0.1", 6449) # Hardcoded to chuck OSC demo
+	var bytes = PackedByteArray()
+	bytes.append(1) # TODO need to send string path and data args
+	peer.put_packet(bytes)
+	pass
 
 func pitch_scale_from_x_position(x : int) -> float:
 	# Spread some octaves over the x coords.
