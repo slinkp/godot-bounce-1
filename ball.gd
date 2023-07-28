@@ -22,3 +22,4 @@ func _on_body_entered(body):
 		body.handle_hit(position)
 	else:
 		print("Hit a non-wall %s" % body.name)
+
