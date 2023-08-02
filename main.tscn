@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgu5o6h33log5"]
+[gd_scene load_steps=7 format=3 uid="uid://dgu5o6h33log5"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_4on2r"]
 [ext_resource type="PackedScene" uid="uid://b4o6agkqexhlt" path="res://wall.tscn" id="2_34x0j"]
 [ext_resource type="PackedScene" uid="uid://c87jqbk0jq5by" path="res://ball.tscn" id="2_uii1u"]
 [ext_resource type="Script" path="res://UI.gd" id="4_ept0s"]
+[ext_resource type="Script" path="res://audio_handler.gd" id="5_vi7rx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wccb7"]
 bg_color = Color(0.411765, 0.411765, 0.411765, 1)
@@ -76,6 +77,9 @@ text = "Add Ball"
 [node name="SpeedLineEdit" type="LineEdit" parent="UI/Buttons/MarginContainer/GridContainer"]
 layout_mode = 2
 placeholder_text = "3000"
+
+[node name="AudioHandler" type="Node" parent="."]
+script = ExtResource("5_vi7rx")
 
 [connection signal="speed_updated" from="UI" to="." method="_on_ui_speed_updated"]
 [connection signal="button_down" from="UI/Buttons/MarginContainer/GridContainer/RestartButton" to="." method="_on_restart_button_button_down"]

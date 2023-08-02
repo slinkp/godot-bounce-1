@@ -6,6 +6,10 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AudioHandler.load_sound("wall_t")
+	$AudioHandler.load_sound("wall_r")
+	$AudioHandler.load_sound("wall_b")
+	$AudioHandler.load_sound("wall_l")
 	restart_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,7 +40,7 @@ func add_random_ball():
 	var direction = new_ball.rotation # Vector2(PI, PI)
 	var velocity = Vector2(speed, 0.0)
 	new_ball.linear_velocity = velocity.rotated(direction)
-
+	new_ball.handle_hit.connect($AudioHandler.handle_hit)
 	add_child(new_ball)
 
 

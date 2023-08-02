@@ -1,8 +1,9 @@
 extends RigidBody2D
 
-signal ball_hit
 
 var screen_size
+
+signal handle_hit(body, position)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,7 @@ func _process(_delta):
 
 func _on_body_entered(body):
 	if body.name.contains("wall"):
-		body.handle_hit(position)
+		emit_signal("handle_hit", body, position)
 	else:
 		print("Hit a non-wall %s" % body.name)
 
