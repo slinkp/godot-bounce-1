@@ -1,4 +1,4 @@
-[gd_resource type="AudioBusLayout" load_steps=6 format=3 uid="uid://g3rc1thc8jq4"]
+[gd_resource type="AudioBusLayout" load_steps=8 format=3 uid="uid://g3rc1thc8jq4"]
 
 [sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_s4d5c"]
 resource_name = "Limiter"
@@ -30,6 +30,21 @@ tap2_pan = -1.0
 [sub_resource type="AudioEffectPanner" id="AudioEffectPanner_8b6iw"]
 resource_name = "Panner"
 pan = -0.72
+
+[sub_resource type="AudioEffectPhaser" id="AudioEffectPhaser_icxhq"]
+resource_name = "Phaser"
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_q4613"]
+resource_name = "Chorus"
+voice_count = 3
+dry = 0.87
+wet = 0.75
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.7
+voice/3/depth_ms = 0.4
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 12000.0
+voice/3/pan = 0.0
 
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectLimiter_s4d5c")
@@ -66,3 +81,13 @@ bus/4/effect/0/effect = SubResource("AudioEffectDelay_0xe0x")
 bus/4/effect/0/enabled = true
 bus/4/effect/1/effect = SubResource("AudioEffectPanner_8b6iw")
 bus/4/effect/1/enabled = true
+bus/5/name = &"weird"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = 0.0
+bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectPhaser_icxhq")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectChorus_q4613")
+bus/5/effect/1/enabled = true

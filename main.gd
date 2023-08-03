@@ -10,6 +10,7 @@ func _ready():
 	$AudioHandler.load_sound("wall_r")
 	$AudioHandler.load_sound("wall_b")
 	$AudioHandler.load_sound("wall_l")
+	$AudioHandler.load_sound("weird")
 	restart_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,7 +25,7 @@ func restart_game():
 	# it gets freed?
 	await get_tree().create_timer(0.5).timeout
 	print("Starting game")
-	add_random_ball()
+
 
 func stop_game():
 	print("Stopping")
