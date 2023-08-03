@@ -33,6 +33,11 @@ position = Vector2(1, 318)
 rotation = -1.57074
 scale = Vector2(0.874732, 1.1982)
 
+[node name="wall_vert_mid" parent="WallContainer" instance=ExtResource("2_34x0j")]
+position = Vector2(561, 329)
+rotation = -1.57074
+scale = Vector2(0.874732, 1.1982)
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
