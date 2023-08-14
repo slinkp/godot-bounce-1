@@ -50,18 +50,33 @@ func osc_message(pitch) -> PackedByteArray:
 	bytes.big_endian = true
 	bytes.resize(256)  # Hack to ensure plenty of room.TODO what's the default?
 
-	var TAG_INT = "i"
 	var velocity = 100
-	# TODO more flexible, this hardcodes 2 integers
-	var typetag = "," + TAG_INT + TAG_INT
+
 	var args = [pitch, velocity] # MIDI style, 0-127
 	var osc_path = "/note/on"  # TODO also support /note/off. But when?
 
 	bytes.put_data(osc_string_as_bytes(osc_path))
+
+	var typetag = ","
+	for arg in args:
+		if arg is int:
+			typetag += "i"
+		elif arg is String:
+			typetag += "s"
+		else:
+			printerr("Unhandled type for OSC type tag %" % arg)
+
 	bytes.put_data(osc_string_as_bytes(typetag))
+
 	for arg in args:
 		# TODO this only handles ints
-		bytes.put_32(arg)
+		if arg is int:
+			bytes.put_32(arg)
+		elif arg is String:
+			bytes.put_data(osc_string_as_bytes(arg))
+		else:
+			printerr("Unhandled type for OSC data %" % arg)
+
 	bytes.resize(bytes.get_position())
 	bytes.seek(0)
 	var message = bytes.data_array
@@ -71,10 +86,8 @@ func osc_message(pitch) -> PackedByteArray:
 
 func osc_int_as_bytes(i):
 	# 32-bit big-endian two’s complement integer
-	# In python: struct.pack(">i", i)
-	# Hmm. Can't find a way to do this.
+	# We just rely on the caller to be big-endian
 	return i
-
 
 func osc_string_as_bytes(s) -> PackedByteArray:
 	var b = s.to_ascii_buffer()
