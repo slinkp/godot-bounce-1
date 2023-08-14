@@ -44,6 +44,11 @@ func add_random_ball():
 	new_ball.handle_hit.connect($AudioHandler.handle_hit)
 	add_child(new_ball)
 
+func remove_ball():
+	var ball = get_tree().get_nodes_in_group("balls")[0]
+	if ball != null:
+		print("Removing ball %s" % ball)
+		ball.queue_free()
 
 func random_position():
 	# Unclear why get_viewport_rect() wasn't available here?
@@ -79,3 +84,7 @@ func _on_ball_spawn_button_button_down():
 func _on_ui_speed_updated(new_speed):
 	print("Changing speed from %s to %s" % [speed, new_speed])
 	speed = new_speed
+
+
+func _on_ball_remove_button_button_down():
+	remove_ball() # Replace with function body.

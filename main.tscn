@@ -72,12 +72,16 @@ text = "Restart"
 
 [node name="StopButton" type="Button" parent="UI/Buttons/MarginContainer/GridContainer"]
 layout_mode = 2
-text = "Stop
+text = "Stop All
 "
 
 [node name="BallSpawnButton" type="Button" parent="UI/Buttons/MarginContainer/GridContainer"]
 layout_mode = 2
 text = "Add Ball"
+
+[node name="BallRemoveButton" type="Button" parent="UI/Buttons/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Remove Ball"
 
 [node name="SpeedLineEdit" type="LineEdit" parent="UI/Buttons/MarginContainer/GridContainer"]
 layout_mode = 2
@@ -90,4 +94,5 @@ script = ExtResource("5_vi7rx")
 [connection signal="button_down" from="UI/Buttons/MarginContainer/GridContainer/RestartButton" to="." method="_on_restart_button_button_down"]
 [connection signal="button_down" from="UI/Buttons/MarginContainer/GridContainer/StopButton" to="." method="_on_stop_button_button_down"]
 [connection signal="button_down" from="UI/Buttons/MarginContainer/GridContainer/BallSpawnButton" to="." method="_on_ball_spawn_button_button_down"]
+[connection signal="button_down" from="UI/Buttons/MarginContainer/GridContainer/BallRemoveButton" to="." method="_on_ball_remove_button_button_down"]
 [connection signal="text_submitted" from="UI/Buttons/MarginContainer/GridContainer/SpeedLineEdit" to="UI" method="_on_speed_line_edit_text_submitted"]
