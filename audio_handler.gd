@@ -29,7 +29,7 @@ func _process(_delta):
 
 func handle_hit(body, hit_position):
 	# Random sound engine!
-	if true || RandomNumberGenerator.new().randi_range(0, 1) == 0:
+	if false: # || RandomNumberGenerator.new().randi_range(0, 1) == 0:
 		play_sample(body, hit_position)
 	else:
 		send_osc(hit_position)
