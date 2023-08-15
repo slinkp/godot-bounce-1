@@ -1,18 +1,5 @@
 extends Node
 
-var player: AudioStreamPlayer
-
-var bus = "master"
-
-var bus_mapping = {
-	"wall_t": "top",
-	"wall_r": "right",
-	"wall_b": "bottom",
-	"wall_l": "left",
-}
-
-var player_mapping = {}
-
 # Twelfth root of two = one semitone in equal temperament.
 # See eg https://dbpedia.org/page/Twelfth_root_of_two
 var semitone_freq_ratio: float = pow(2.0, (1.0 / 12.0))
@@ -29,10 +16,7 @@ func _process(_delta):
 
 func handle_hit(body, hit_position):
 	# Random sound engine!
-	if false: # || RandomNumberGenerator.new().randi_range(0, 1) == 0:
-		play_sample(body, hit_position)
-	else:
-		send_osc(hit_position)
+	send_osc(hit_position)
 
 
 func send_osc(hit_position):
@@ -121,27 +105,3 @@ func pitch_scale_from_x_position(x : int) -> float:
 	var pitch_ratio: float = pow(semitone_freq_ratio, semitone)
 	print("Got pitch ratio %s from position %s" % [pitch_ratio, x])
 	return pitch_ratio
-
-func play_sample(body, hit_position):
-	# TODO: make this work for y on the left/right walls too
-	var pitch_scale = pitch_scale_from_x_position(hit_position.x)
-	var this_player = player_mapping.get(body.name, player_mapping["weird"])
-	this_player.pitch_scale = pitch_scale
-	this_player.play()
-
-func get_sound_path(nodename):
-	return "res://assets/sounds/drum-hit-tom-low_100bpm_D#_major.wav"
-
-func load_sound(nodename):
-	var path = get_sound_path(nodename)
-	player = AudioStreamPlayer.new()
-	player_mapping[nodename] = player
-	add_child(player)
-	var bus_name = bus_mapping.get(nodename, "weird")
-	player.bus = bus_name
-	if FileAccess.file_exists(path):
-		var stream = load(path)
-		player.set_stream(stream)
-		print("Loaded sound from %s" % path)
-	else:
-		printerr("Could not load path %s" % path)

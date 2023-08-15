@@ -6,11 +6,6 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$AudioHandler.load_sound("wall_t")
-	$AudioHandler.load_sound("wall_r")
-	$AudioHandler.load_sound("wall_b")
-	$AudioHandler.load_sound("wall_l")
-	$AudioHandler.load_sound("weird")
 	restart_game()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
